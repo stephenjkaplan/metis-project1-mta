@@ -1,2 +1,2 @@
-# metis-project1-mta
+# mta-data-analysis
 Exploratory Data Analysis of MTA Turnstile data.
