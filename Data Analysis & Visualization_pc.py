@@ -5,33 +5,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set()
 
-'''
-Starting data frame setup
-filename = 'ts_ent_ex_deltas_mayjune_20152020.pkl'
-mta_raw_data = pd.read_pickle(filename)
-'''
-
-mta_raw_data['YEAR'] = mta_raw_data['DATETIME'].dt.year
-
-# Exploring to identify 10 busiest stations
-df_sort = mta_raw_data.groupby(['STATION','YEAR'], as_index=False).agg({'ENTRIES_DELTA':'sum', 'EXITS_DELTA':'sum'})
-df_sort['TOTAL_TRAFFIC'] = df_sort['ENTRIES_DELTA'] + df_sort['EXITS_DELTA']
-
-# Following code shows that there are issues with station name consistency from year to year
-top10_grouped = df_sort.groupby(['STATION', 'YEAR'],as_index=False).agg({'TOTAL_TRAFFIC':'sum'})
-top10_annually = top10_grouped.pivot_table(index='STATION', columns='YEAR', values='TOTAL_TRAFFIC').reset_index()
-top10_annually
-
-'''Return list of top 10 stations by year. Based on the returned data frame, drop 2015 as data due to inconsistent
-naming vs. 2016-2020'''
-top10_stations = pd.DataFrame()
-for years in top10_annually.columns:
-    sort_stat_df = top10_annually.sort_values(by=years, ascending=False).head(10)
-    top10_stations[years] = sort_stat_df.index
-top10_stations
-
-# Selection stations based on 2019 rankings
-station_selection = top10_stations[2019]
 
 ''' 
 1) create df for 10 busiest stations
