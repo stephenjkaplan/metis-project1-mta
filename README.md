@@ -15,6 +15,8 @@ to improve their strategy for handing out fliers at subway stations.
 - `data_cleaning_utilities.py` contains functions used in support `Data Acquisition & Cleaning.ipynb`
 - `data_visualization_utilities.py` contains functions used in `Data Analysis & Visualization.ipynb`
 
+The Data Acquisition/Cleaning notebook should be run before the Data Analysis/Visualization notebook.
+
 #### Dependencies
 - Python 3.6 (and above)
 - pandas
