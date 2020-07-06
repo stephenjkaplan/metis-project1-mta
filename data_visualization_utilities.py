@@ -54,7 +54,7 @@ def plot_busy_times_heatmap(df, title):
     plt.figure(figsize=(16, 12))
     sns.heatmap(df, vmin=2500, vmax=40000, cbar_kws={'label': 'Avg Total Traffic'})
     plt.xlabel('3-Hour Windows', fontsize=14)
-    plt.ylabel('Average Total Traffic', fontsize=14)
+    plt.ylabel('Stations', fontsize=14)
     plt.title(title, fontsize=20)
     plt.xticks([0, 1, 2, 3, 4, 5, 6, 7, 8],
                ['12:00am - 3:00am', '3:00am - 6:00am', '6:00am - 9:00am', '9:00am - 12:00pm',
